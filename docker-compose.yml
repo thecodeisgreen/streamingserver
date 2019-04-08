@@ -1,0 +1,9 @@
+version: '3'
+services:
+  streaming:
+    image: streaming
+    ports:
+      - 1935:1935
+      - 8080:8080
+      
+      
