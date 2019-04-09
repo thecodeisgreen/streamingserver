@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <video 
+    id="video"
+    playsinline="true"
+    autoplay="true"
+    muted="muted"
+    style="width: 600"
+    ></video>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <!-- Or if you want a more recent canary version -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@canary"></script> -->
+  <script>
+    var video = document.getElementById('video');
+    if(Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource('https://streaming.thecodeisgreen.com/hls/channel2.m3u8');
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED,function() {
+        console.log("play")
+        //video.play();
+    });
+  }
+  </script>
+</html>
